@@ -3,8 +3,11 @@ import numpy as np
 from PIL import Image
 
 
+PATH = 'received_images/'
+def mask_subtract(inp , out):
 
-def mask_subtract(img , mask):  
+	img = Image.open(PATH+inp) 
+	mask = Image.open(PATH + out)
 	out = Image.new('RGB', img.size, 0xffffff)
 
 	width, height = mask.size
@@ -16,8 +19,6 @@ def mask_subtract(img , mask):
 	            out.putpixel((x,y), 0)
 	        else:
 	        	out.putpixel((x,y), img.getpixel((x,y)))   	
-	out.save('bar.png')
+	out.save(PATH + 'masked.png')
 
-img = Image.open("shirt.jpeg") 
-mask = Image.open("out.png")
-mask_subtract(img , mask)
+# mask_subtract(img , mask)

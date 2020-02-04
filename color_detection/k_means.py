@@ -5,6 +5,7 @@ import matplotlib.patches as patches
 import cv2
 import webcolors
 
+PATH = 'received_images/'
 actual_name__list = []
 closest_name_list = []
 
@@ -53,15 +54,15 @@ def color_cluster(img_vec):
 	    
 	    print ("Actual colour name:", actual_name, ", closest colour name:", closest_name)
 
-	plt.show()
+	# plt.show()
 	return actual_name__list , closest_name_list
 
 
 
-
-img = cv2.imread('red.jpg')
-height, width, dim = img.shape
-# img = img[(height/4):(3*height/4), (width/4):(3*width/4), :]
-# height, width, dim = img.shape
-img_vec = np.reshape(img, [height * width, dim] )
-color_cluster(img_vec)
+def detect_color(masked):
+	img = cv2.imread(PATH+masked)
+	height, width, dim = img.shape
+	# img = img[(height/4):(3*height/4), (width/4):(3*width/4), :]
+	# height, width, dim = img.shape
+	img_vec = np.reshape(img, [height * width, dim] )
+	return color_cluster(img_vec)
