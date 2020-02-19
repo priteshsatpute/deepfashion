@@ -8,8 +8,8 @@ input_size = (128,128)
 train_datagen = ImageDataGenerator(rescale=1./255, shear_range=0.2, zoom_range=0.2, horizontal_flip=True) 
 test_datagen = ImageDataGenerator(rescale=1./255)
 
-train_data = train_datagen.flow_from_directory('./dataset/train',target_size=input_size,classes=['jeans','t-shirt','skirts'],batch_size = 10)
-validation_data = test_datagen.flow_from_directory('./dataset/validation',target_size=input_size,classes=['jeans','t-shirt','skirts'],batch_size = 10)
+train_data = train_datagen.flow_from_directory('../datasets/',target_size=input_size,classes=['fullsleeves','halfsleeves','sleeveless'],batch_size = 10)
+validation_data = test_datagen.flow_from_directory('../datasets/',target_size=input_size,classes=['fullsleeves','halfsleeves','sleeveless'],batch_size = 10)
 
 #design model
 

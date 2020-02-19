@@ -1,17 +1,66 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Jozu</title>
-	<script type="text/javascript">
+  <head>
+    <title>Project</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
 
+    <style rel="stylesheet" type="text/css">
+      /* .btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      } */
+    </style>
+  </head>
+  <body>
+    <!-- <form action="/" method="POST" enctype="multipart/form-data">
+      <input type="file" name="file" />
+      <input type="submit" name="Search" />
+    </form> -->
 
-	</script>
-</head>
-<body>
-    <form action="/" method = "POST" enctype = "multipart/form-data">
-<!-- <input type="file" name="file" accept="image/*" capture="camera" /> -->
- <input type = "file" name = "file" />
-<input type="submit" name="Search"/>
-</form>
-</body>
+    <div class="container text-center">
+      <form action="/" method="POST" enctype="multipart/form-data">
+        <div class="col">
+          <div>
+            <img src="" alt="" id="inputImage" class="img-fluid" />
+          </div>
+          <button id="selectImageBtn" class="btn btn-outline-info">
+            Select Image
+          </button>
+          <input
+            id="select"
+            type="file"
+            accept="image/*"
+            name="file"
+            style="display: none;"
+          />
+          <input class="btn btn-success" type="submit" name="Search" />
+        </div>
+      </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(() => {
+        $("#selectImageBtn").click(event => {
+          event.preventDefault();
+          $("#select").trigger("click");
+        });
+
+        $("#select").change(event => {
+          let inputImage = document.getElementById("inputImage");
+          inputImage.src = URL.createObjectURL(event.target.files[0]);
+          $(".btn").css("top", "100%");
+        });
+      });
+    </script>
+  </body>
 </html>
