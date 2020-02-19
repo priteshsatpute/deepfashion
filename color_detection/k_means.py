@@ -1606,14 +1606,12 @@ def name_that_color(color):
 		r1 = int(color_list[0][:2], 16)
 		g1 = int(color_list[0][2:4], 16)
 		b1 = int(color_list[0][4:6], 16)
-		# print(color_list[0], int(color_list[0][:2], 16), int(color_list[0][2:4], 16), int(color_list[0][4:6], 16))
 		if(r1 == r and g1 == g and b1 == b):
 			return ['#'+color_list[0], color_list[1], True]
 		ndf = ((r - r1)**2) + ((g - g1)**2) + ((b - b1)**2)
 		if(df < 0 or df > ndf):
 			df = ndf
 			cl = color_list
-	# return cl < 0 ? ['#000000', "Invalid Color: #"+ str(r)+str(g)+str(b), True] : ['#'+cl[0], cl[1], True]
 	return ['#000000', "Invalid Color: #"+ str(r)+str(g)+str(b), False] if(type(cl) is not list) else ['#'+cl[0], cl[1], False]
 
 
