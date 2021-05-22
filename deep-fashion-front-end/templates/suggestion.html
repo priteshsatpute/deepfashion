@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="d-flex justify-content-center">
+    <div class="row">
+      {% for info in data %}
+      <div class="col-lg-4 col-md-6 col-sm-12 text-center mt-4">
+        <div class="card">
+          <img src="{{ info.img }}" alt="" />
+          <!-- <div class="card-text text-left m-4">{{ info.desc }}</div> -->
+          <div class="card-footer d-flex justify-content-around">
+            {{ info.price }}
+            <a href="{{ info.site }}" target="_new">{{ info.companyName }}</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="d-flex justify-content-around">
+    <button class="btn btn-outline-info my-5">
+      Show More...
+    </button>
+  </div>
+</div>
